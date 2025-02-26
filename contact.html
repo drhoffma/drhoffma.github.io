@@ -43,13 +43,7 @@
     fetch('footer.html')
       .then(response => response.text())
       .then(html => document.getElementById('footer').innerHTML = html);
-  </script>
   
-  <script>
-    fetch('nav.html')
-      .then(response => response.text())
-      .then(html => document.getElementById('navbar').innerHTML = html);
-
     document.getElementById("contact-form").addEventListener("submit", function(event) {
       event.preventDefault();
       var form = this;
