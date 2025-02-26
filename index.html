@@ -3,21 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home</title>
+  <title>David Hoffman - Home</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
   <div id="navbar"></div>
 
   <div class="container mt-4">
-    <h1>Welcome to My Website</h1>
-    <p>This is the homepage. Navigate using the menu above.</p>
+    <div class="row">
+      <!-- Left Column: Recent Updates -->
+      <div class="col-md-8">
+        <h2>Recent Updates</h2>
+        <p><strong>January 2024:</strong><br> Reveald launches a new website. <a href="https://reveald.com" target="_blank">Click here!</a></p>
+        <p><strong>July 2023:</strong><br> Reveald and Epiphany Systems merge. <a href="https://reveald.com/blog/reveald-merges-with-epiphany-systems-to-usher-in-a-new-era-of-predictive-security-operations" target="_blank">Press release.</a></p>
+        <p><strong>June 2022:</strong><br> I joined the cybersecurity industry with Epiphany Systems. <a href="https://epiphanysys.com" target="_blank">Check us out and consider booking a demo.</a></p>
+        <p><strong>May 2022:</strong><br> I ceased offering independent consulting in computer vision and AI.</p>
+        </ul>
+      </div>
+
+      <!-- Right Column: Headshot -->
+      <div class="col-md-4 text-center">
+        <img src="drhoffma_headshot_2025.png" alt="David Hoffman Headshot" class="img-fluid rounded-circle" style="max-width: 80%;">
+      </div>
+    </div>
   </div>
 
+  <!-- Footer -->
+  <footer class="text-center mt-4 py-3 bg-light">
+    <p>&copy; <span id="current-year"></span> David Hoffman. All Rights Reserved.</p>
+  </footer>
+
   <script>
+    // Load the navbar dynamically
     fetch('nav.html')
       .then(response => response.text())
       .then(html => document.getElementById('navbar').innerHTML = html);
+
+    // Dynamically update copyright year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
