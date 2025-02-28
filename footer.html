@@ -1,8 +1,5 @@
-<footer class="text-center mt-4 py-3 bg-light">
-  <p>&copy; <span id="current-year"></span> David Hoffman. All Rights Reserved.</p>
-</footer>
-
 <script>
-  // Dynamically update the copyright year
-  document.getElementById("current-year").textContent = new Date().getFullYear();
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  });
 </script>
