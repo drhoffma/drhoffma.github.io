@@ -1,8 +1,12 @@
 <footer class="text-center mt-4 py-3 bg-light">
   <p>&copy; <span id="current-year"></span> David Hoffman. All Rights Reserved.</p>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      document.getElementById("current-year").textContent = new Date().getFullYear();
-    });
-  </script>
 </footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const yearSpan = document.getElementById("current-year");
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
+  });
+</script>
