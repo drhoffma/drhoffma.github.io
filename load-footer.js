@@ -5,6 +5,12 @@ document.addEventListener("DOMContentLoaded", function () {
       const footerContainer = document.getElementById('footer');
       footerContainer.innerHTML = html;
 
+      // Ensure the year updates correctly after loading
+      const yearSpan = document.getElementById("current-year");
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+
       // Extract and execute scripts inside fetched HTML
       footerContainer.querySelectorAll("script").forEach(oldScript => {
         const newScript = document.createElement("script");
