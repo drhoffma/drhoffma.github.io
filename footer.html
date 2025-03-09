@@ -3,32 +3,31 @@
 </footer>
 
 <script>
+  // Automatically set the current year in the footer
   document.addEventListener("DOMContentLoaded", function () {
     const yearSpan = document.getElementById("current-year");
     if (yearSpan) {
       yearSpan.textContent = new Date().getFullYear();
     }
   });
-</script>
 
-<script>
+  // Dynamically load head.html and inject into <head>
   fetch('head.html')
     .then(response => response.text())
-    .then(data => document.head.innerHTML += data);
+    .then(data => {
+      document.head.innerHTML += data;
+
+      // Update the title dynamically after head is loaded
+      const pageTitles = {
+        "/resume.html": "David Hoffman - Resume",
+        "/contact.html": "David Hoffman - Contact",
+        "/testimonials.html": "David Hoffman - Testimonials",
+        "/": "David Hoffman - Home"
+      };
+      document.title = pageTitles[window.location.pathname] || "David Hoffman";
+    });
 </script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const pageTitles = {
-      "/resume.html": "David Hoffman - Resume",
-      "/contact.html": "David Hoffman - Contact",
-      "/testimonials.html": "David Hoffman - Testimonials",
-      "/": "David Hoffman - Home"
-    };
-    document.title = pageTitles[window.location.pathname] || "David Hoffman";
-  });
-</script>
-
-<!-- Bootstrap JS and Popper.js (Ensure these are included for dropdown functionality) -->
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
