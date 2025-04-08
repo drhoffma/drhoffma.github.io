@@ -1,7 +1,7 @@
 import requests
 
 PDF_URL = "https://docs.google.com/document/d/1KxwaJJL1VckBl-8YWLlFuWE1zXrM4IGf5szrNUS4MSg/export?format=pdf"
-OUTPUT_PATH = "pdf/resume.pdf"  # or "public/resume.pdf"
+OUTPUT_PATH = "resume/pdf/resume.pdf"  # or "public/resume.pdf"
 
 def download_resume():
     response = requests.get(PDF_URL)
