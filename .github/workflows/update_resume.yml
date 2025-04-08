@@ -28,6 +28,6 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add resume.pdf
+          git add resume/pdf/resume.pdf
           git commit -m "Auto-update resume PDF" || echo "No changes to commit"
           git push
