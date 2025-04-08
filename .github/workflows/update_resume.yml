@@ -2,7 +2,7 @@ name: Update Resume
 
 on:
   schedule:
-    - cron: '0 8 * * 1'  # every Monday at 8 AM UTC
+    - cron: '*/20 * * * *'  # every 20 minutes
   workflow_dispatch:      # also lets you trigger it manually
 
 jobs:
@@ -25,12 +25,10 @@ jobs:
         run: python resume/update_resume.py
 
       - name: Commit and push changes
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
         run: |
-              git config user.name "github-actions"
-              git config user.email "github-actions@github.com"
-              git remote set-url origin https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}.git
-              git add resume/pdf/resume.pdf
-              git commit -m "Auto-update resume PDF" || echo "No changes to commit"
-              git push origin main
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git 
+          git add resume/pdf/resume.pdf
+          git commit -m "Auto-update resume PDF" || echo "No changes to commit"
+          git push origin main
