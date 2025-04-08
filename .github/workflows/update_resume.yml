@@ -1,0 +1,33 @@
+name: Update Resume
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'  # every Monday at 8 AM UTC
+  workflow_dispatch:      # also lets you trigger it manually
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run script
+        run: python scripts/update_resume.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add resume.pdf
+          git commit -m "Auto-update resume PDF" || echo "No changes to commit"
+          git push
